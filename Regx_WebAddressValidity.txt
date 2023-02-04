@@ -1,0 +1,34 @@
+public class Web_Address_Validation {
+	
+	public static boolean checkWebAddressValidity(String WebAddress)
+	{
+		boolean flag=false;
+		String regx="(http://|https://)(www\\\\.).[a-zA-Z0-9](.com|.org|.net)";
+		
+		if(WebAddress.matches(regx));
+		{
+			flag=true;
+		}
+		return flag;
+	}
+	
+	
+	
+
+	public static void main(String[] args) 
+	{
+		String WebAddress="http://www.Dxc.org";
+		System.out.println("The WebAddress of the customer is: "+WebAddress);
+		if(checkWebAddressValidity(WebAddress))
+		{
+			System.out.println("The WebAdress is valid");
+		}
+		else
+		{
+			System.out.println("The WebAdress is invalid");
+		}
+		
+
+	}
+
+}
