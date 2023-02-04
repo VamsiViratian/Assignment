@@ -1,0 +1,582 @@
+Assignment_week_1
+
+package Assignment_week_1;
+import java.util.*;
+public class Armstrong {
+
+	public static void main(String[] args) 
+	{
+		int n,count=0,a,b,c,sum=0;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter any number : ");
+		n=s.nextInt();
+		a=n;
+		c=n;
+		while(a>0)
+		{
+			a=a/10;
+			count++;
+		}
+		while(n>0)
+		{
+			b=n%10;
+			sum=(int)(sum+Math.pow(b, count));
+			n=n/10;
+		}
+		if(sum==c)
+			System.out.println(c+" is Armstrong Number");
+		else
+			System.out.println(c+" is Not Armstrong Number");
+
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------
+
+package Assignment_week_1;
+import java.util.*;
+public class Chicken_rabbit {
+
+	public static void main(String[] args) 
+	{
+		int r=0,c=0;
+		int legs;
+		int heads;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter no of heads : ");
+		heads=sc.nextInt();
+		System.out.println("Enter no of legs : ");
+		legs=sc.nextInt();
+		
+		if(legs % 2 != 0 || heads==0 || heads>legs)
+		{
+			System.out.println("The number of chickens and rabbits cannot be found");
+		}
+		else
+		{
+			r=(legs+(-2*heads))/2;
+			c=heads-r;
+		}
+		System.out.println("Chickens "+c);
+		System.out.println("Rabbits "+r);
+
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+public  class Foodcorner {
+
+    double bill_amount;
+	char foodtype;
+	int quantity;
+	int distance;
+	public static void main(String[] args)
+	{
+		double bill_amount;
+		char foodtype;
+		int quantity;
+		int distance;
+
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter foodtype : ");
+		foodtype=sc.next().charAt(0);
+		System.out.println("Enter quantity in plates : ");
+		quantity=sc.nextInt();
+		System.out.println("Enter distance in km : ");
+		distance=sc.nextInt();
+		
+		if(foodtype=='V' || foodtype=='N'  &&  quantity>=1  &&  distance<=3)
+		{
+			if(foodtype=='V')
+			{
+				bill_amount=(81.46*12)*quantity;
+				System.out.println("The total bill amount is "+bill_amount);
+			}
+			else
+			{
+				bill_amount=(81.46*15)*quantity;
+				System.out.println("The total bill amount is "+bill_amount);
+			}
+		
+		}
+		
+		
+		if(foodtype=='V' || foodtype=='N'  &&  quantity>=1  &&  distance>3 && distance<=6)
+		{
+			if(foodtype=='V')
+			{
+				bill_amount=(81.46*12)*quantity*81.46;
+				System.out.println("The total bill amount is "+bill_amount);
+			}
+			else
+			{
+				bill_amount=(81.46*15)*quantity*81.46;
+				System.out.println("The total bill amount is "+bill_amount);
+			}
+		}
+		if(foodtype=='V' || foodtype=='N'  &&  quantity>=1  &&  distance>6)
+		{
+			if(foodtype=='V')
+			{
+				bill_amount=(81.46*12)*quantity*81.46*2;
+				System.out.println("The total bill amount is "+bill_amount);
+			}
+			else
+			{
+				bill_amount=(81.46*15)*quantity*81.46*2;
+				System.out.println("The total bill amount is "+bill_amount);
+			}
+				
+		}
+
+		
+}
+	
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+package Assignment_week_1;
+import java.util.*;
+public class Luckynum {
+
+	public static void main(String[] args)
+	{
+		
+		int count=0;
+		int rev=0,org,d,sum=0;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter any number : ");
+		int num=sc.nextInt();
+		org=num;
+		while(num>0)
+		{
+			num=num/10;
+			count++;
+		}
+		int org1=org;
+		while(org>0)
+		{
+			d=org%10;
+			rev=rev*10+d;
+			org=org/10;
+		}
+		int position=1,even_position;
+		while(rev>0)
+		{
+			if(position%2==0)
+			{
+				even_position=rev%10;
+				sum=sum+even_position*even_position;
+			}
+			rev=rev/10;
+			position++;
+		}
+		if(sum%9==0)
+		{
+			System.out.println("The number "+org1+" is a lucky number");
+		}
+		else
+		{
+			System.out.println("The number "+org1+" is Not a lucky number");
+		}
+
+------------------------------------------------------------------------------------------------------------------------------
+
+package Assignment_week_1;
+ class MovieTicket
+{
+	private int movieid;
+	private int noOfSeats;
+	private double costPerTicket;
+	private double TotalAmount;
+	public  void MovieTicket(int movieid,int noOfSeats)
+	{
+		movieid=111;
+		noOfSeats=3;
+	}
+	public void setmovieid(int i)
+	{
+		this.movieid=i;
+	}
+	public int getmovieid()
+	{
+		return movieid;
+	}
+	public void setnoOfSeats(int j)
+	{
+		this.noOfSeats=j;
+	}
+	public int getnoOfSeats()
+	{
+		return noOfSeats;
+	}
+	public void setcostPerTicket(double k)
+	{
+		this.costPerTicket=k;
+	}
+	public double getcostPerTicket()
+	{
+		return costPerTicket;
+	}
+
+	public  void calculateTotalAmount()
+	{
+		//costPerTicket=100;
+		//double TotalAmount=(costPerTicket*noOfSeats)*0.02;
+		double TotalAmount;
+	}
+	public void setTotalAmount(double m)
+	{
+		this.TotalAmount=m;
+	}
+	public double getTotalAmount()
+	{
+		return  TotalAmount;
+	}
+	
+}
+ 
+public class Movie_ticket {
+
+	public static void main(String[] args)
+	{
+		MovieTicket ref=new MovieTicket();
+		ref.setmovieid(111);
+		System.out.println("movieid : "+ref.getmovieid());
+		ref.setcostPerTicket(81.46*7);
+		System.out.println("cost per ticket: "+ref.getcostPerTicket());
+		ref.setnoOfSeats(3);
+		System.out.println("no of seats: "+ref.getnoOfSeats());
+		ref.setTotalAmount((81.46*7*3)+0.02);
+		System.out.println("Total Amount is : "+ref.getTotalAmount());
+		
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------
+
+package Assignment_week_1;
+import java.util.*;
+public class Palindrome {
+
+	public static void main(String[] args) 
+	{
+		int num,t,s,rem;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter any number : ");
+		num=sc.nextInt();
+		t=num;
+		for(s=0;num>0;num/=10)
+		{
+			rem=num%10;
+			s=(s*10)+rem;
+		}
+		if(s==t)
+			System.out.println(t+" is a palindrome number");
+		else
+			System.out.println(t+" is Not a palindrome number");
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+package Assignment_week_1;
+ 
+	
+public class Removespace_string {
+	
+
+	public static void main(String[] args)
+	{
+		
+		
+		String str1=" Welcome  to the world    ";
+		str1=str1.replaceAll(" ", "");
+		System.out.println(str1.trim());
+
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------
+
+package Assignment_week_1;
+
+public class Removespecialchar {
+	static String moveAllspclchar(String str)
+	{
+		int len = str.length();
+		String regx = "[a-zA-Z0-9\\s+]";
+		
+		String res1= "",res2="";
+		for(int i=0;i<len;i++)
+		{
+			char c=str.charAt(i);
+			
+			if(String.valueOf(c).matches(regx))
+				res1=res1+c;
+			else
+				res2=res2+c;
+		}
+		return res1+res2;
+		
+	}
+
+	public static void main(String[] args) 
+	{
+		String str1="He@#$llo!*&";
+		String str2="%$Wel*come!";
+		str1=str1.replaceAll("[@#$!*&]", "");
+		str2=str2.replaceAll("[%$*!]", "");
+		System.out.println(moveAllspclchar(str1));
+		System.out.println(moveAllspclchar(str2));
+
+
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+public class Bmi 
+{
+	private String name;
+	private int age;
+	private double weight;
+	private double height;
+	
+	Bmi()
+	{
+		name="rama";
+		age=20;
+		weight=50;
+		height=6;
+	}
+	
+	public void setname(String a)
+	{
+		this.name=a;
+	}
+	public String getname()
+	{
+		return name;
+	}
+	public void setage(int b)
+	{
+		this.age=b;
+	}
+	public int getage()
+	{
+		return age;
+	}
+	public void setweight(double c)
+	{
+		this.weight=c;
+	}
+	public double getweight()
+	{
+		return weight;
+	}
+	public void setheight(double d)
+	{
+		this.height=d;
+	}
+	public double getheight()
+	{
+		return height;
+	}
+
+}
+
+public class Bmi_main {
+
+	public static void main(String[] args) 
+	{
+		Bmi ref=new Bmi();
+		ref.setage(50);
+		System.out.println("Age is "+ref.getage());
+		ref.setname("krishna");
+		System.out.println("name is "+ref.getname());
+		ref.setheight(72);
+		System.out.println("height is "+ref.getheight());
+		ref.setweight(60);
+		System.out.println("weight is "+ref.getweight());
+	}
+
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+class Fan
+{
+	private int speed;
+	private boolean on;
+	private double radius;
+	private String color;
+	
+	
+	Fan()
+	{
+		speed=1;
+		on=false;
+		radius=5;
+		color="blue";
+	}
+	
+	public void setspeed(int a)
+	{
+		this.speed=a;
+	}
+	public int getspeed()
+	{
+		return speed;
+	}
+	public void seton(boolean b)
+	{
+		this.on=b;
+	}
+	public boolean geton()
+	{
+		return on;
+	}
+	public void setradius(int c)
+	{
+		this.radius=c;
+	}
+	
+	public double getradius()
+	{
+		return radius;
+	}
+	public void setcolor(String d)
+	{
+		this.color=d;
+	}
+	public String getcolor()
+	{
+		return color;
+	}
+	
+	public void String()
+	{
+		if(on==false)
+		{
+			System.out.println("speed: "+speed+"  color: "+color+"  radius: "+radius);
+		}
+		else
+		{
+			System.out.println("  color: " +color+ "  radius: "+radius+"fan is off");
+			
+		}
+	}
+}
+public class Fanset {
+
+	public static void main(String[] args)
+	{
+		Fan ref=new Fan();
+		ref.String();
+
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+class Tv
+{
+	private int channel;
+	private int volumeLevel;
+	private boolean on,off;
+	
+	Tv()
+	{
+		channel=110;
+		volumeLevel=7;
+		on=false;
+	}
+	
+	public void setchannel(int a)
+	{
+		this.channel=a;
+	}
+	public int getchannel()
+	{
+		return channel;
+	}
+	public void setvolumeLevel(int b)
+	{
+		this.volumeLevel=b;
+	}
+	public int getvolumeLevel()
+	{
+		return volumeLevel;
+	}
+	public void seton(boolean c)
+	{
+		this.on=c;
+	}
+	public boolean geton()
+	{
+		return on;
+	}
+	
+	public void channelUp(int y)
+	{
+		channel=channel+y;
+		System.out.println("channel is levelled up by "+ y);
+		System.out.println("channel : "+channel);
+	}
+	public void channelDown(int y)
+	{
+		channel=channel-y;
+		System.out.println("channel is levelled down by "+ y);
+		System.out.println("channel : "+channel);
+	}
+	public void volumeDown(int x)
+	{
+		volumeLevel=volumeLevel-x;
+		System.out.println("volume is levelled down by "+ x);
+		System.out.println("volume : "+volumeLevel);
+	}
+
+	public void volumeUp(int x)
+	{
+		volumeLevel=volumeLevel+x;
+		System.out.println("volume is levelled up by "+ x);
+		System.out.println("volume : "+volumeLevel);
+	}
+
+
+}
+public class Tvset {
+
+	public static void main(String[] args) 
+	{
+		Tv ref=new Tv();
+		ref.setchannel(110);
+		System.out.println("channel : "+ ref.getchannel());
+		ref.setvolumeLevel(5);
+		System.out.println("volume level : "+ ref.getvolumeLevel());
+		ref.seton(false);
+		System.out.println("Tv status : "+ ref.geton());
+		ref.channelUp(6);
+		ref.channelDown(5);
+		ref.volumeUp(2);
+		ref.volumeDown(2);
+
+	}
+
+}
+
+

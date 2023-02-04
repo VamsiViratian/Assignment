@@ -1,0 +1,70 @@
+public class Circlel
+{
+	private final double PI=3.14;
+	private double diameter;
+	private double circumference;
+	private double area;
+	double radius;
+	Circlel(double diameter)
+	{
+		this.diameter=diameter;
+	}
+	
+	public void calculateCircumference()
+	{
+		
+		circumference=PI*diameter;
+	}
+	public void calculateArea()
+	{
+		radius=diameter/2;
+		area=PI*radius*radius;
+	}
+
+	public double getDiameter() {
+		return diameter;
+	}
+
+	public void setDiameter(double diameter) {
+		this.diameter = diameter;
+	}
+
+	public double getCircumference() {
+		return circumference;
+	}
+
+	public void setCircumference(double circumference) {
+		this.circumference = circumference;
+	}
+
+	public double getArea() {
+		return area;
+	}
+
+	public void setArea(double area) {
+		this.area = area;
+	}
+
+}
+
+public class Circle_Tester {
+
+	public static void main(String[] args) 
+	{
+		Circlel circle1 = new Circlel(10.2);
+		 Circlel circle2 = new Circlel(5.7);
+		 //Create more objects of Circle class and add to the array given below for testing your code 
+		 Circlel[] circles = {circle1, circle2};
+		 for (Circlel circle : circles) {
+		 circle.calculateCircumference();
+		 circle.calculateArea();
+		 System.out.println("Diameter of the circle is "+circle.getDiameter());
+		 System.out.println("Circumference of the circle is " + 
+		Math.round(circle.getCircumference()*100)/100.0);
+		 System.out.println("Area of the circle is " + Math.round(circle.getArea()*100)/100.0);
+		 System.out.println();
+		 }
+
+	}
+
+}

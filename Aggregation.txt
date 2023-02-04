@@ -1,0 +1,110 @@
+public class Author 
+{
+	private String name;
+	private String emailid;
+	private char gender;
+	
+	Author(String name,String emailid,char gender)
+	{
+		this.name=name;
+		this.emailid=emailid;
+		this.gender=gender;
+	}
+	
+	public void setname(String name)
+	{
+		this.name=name;
+	}
+	public String getname()
+	{
+		return name;
+	}
+	public void setemailid(String emailid)
+	{
+		this.emailid=emailid;
+	}
+	public String getemailid()
+	{
+		return emailid;
+	}
+	public void setgender(char gender)
+	{
+		this.gender=gender;
+	}
+	public char getgender()
+	{
+		return gender;
+	}
+
+}
+
+public class Book 
+{
+	private String name;
+	private Author author;
+	private double price;
+	private int quantity;
+	
+	Book(String name,Author author,double price,int quantity)
+	{
+		this.name=name;
+		this.author=author;
+		this.price=price;
+		this.quantity=quantity;
+	}
+	public void displayAuthordetails()
+	{
+		Author a1=new Author("ram","gsyd@gmail.com",'M');
+		System.out.println("Author name : "+a1.getname());
+		System.out.println("Author emailid : "+a1.getemailid());
+		System.out.println("Author gender : "+a1.getgender());
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Author getAuthor() {
+		return author;
+	}
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+
+}
+
+public class Author_Book_Tester {
+	private static Author a1;
+
+	public static void main(String[] args) 
+	{
+		Author a1=new Author("majesty","bdsgf@gmail.com",'F');
+		System.out.println("name : "+a1.getname());
+		System.out.println("mailid : "+a1.getemailid());
+		System.out.println("gender : "+a1.getgender());
+		System.out.println();
+		Book book1=new Book("Effective Java",a1,45,15);
+		System.out.println("name : "+book1.getName());
+		System.out.println("Author : "+book1.getAuthor());
+		System.out.println("price : $"+book1.getPrice());
+		System.out.println("quantity : "+book1.getQuantity());
+		
+		
+
+	}
+
+}

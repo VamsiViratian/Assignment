@@ -1,0 +1,153 @@
+public class BusBooking 
+{
+	private int bookingId;
+	private String destination;
+	private String tripPackage;
+	private double totalAmmount;
+	
+	BusBooking(int bookingId,String destination,String tripPackage)
+	{
+		this.bookingId=bookingId;
+		this.destination=destination;
+		this.tripPackage=tripPackage;
+	}
+
+	public int getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public String getTripPackage() {
+		return tripPackage;
+	}
+
+	public void setTripPackage(String tripPackage) {
+		this.tripPackage = tripPackage;
+	}
+
+	public double getTotalAmmount() {
+		return totalAmmount;
+	}
+
+	public void setTotalAmmount(double totalAmmount) {
+		this.totalAmmount = totalAmmount;
+	}
+	
+	public boolean validateCouponCode(String couponCode,int numOfMembers) throws InvalidCouponCodeException
+	{
+		if((couponCode.equals("BIGBUS") && numOfMembers>=10)|| (couponCode.equals("MAGICBUS") && numOfMembers>=15))
+		{
+			return true;
+		}
+		else throw new InvalidCouponCodeException("Invalid coupon code");
+	}
+	
+	public String bookTrip(String couponCode,int numOfMembers)
+	{
+		try {
+	
+		if(!(this.destination.equals("Wasgington DC") || 
+			     this.destination.equals("Philadelphia") || 
+				 this.destination.equals("Orlando") || 
+				 this.destination.equals("Boston") || 
+				 this.destination.equals("Atlanta")))
+				
+				throw new InvalidDestinationException("Invalid Destination");
+			
+		else if(!(this.tripPackage.equals("Regular") || this.tripPackage.equals("Premium")))
+				throw new InvalidTripPackageException("Invalid package");
+			
+		validateCouponCode(couponCode,numOfMembers);
+		if(tripPackage.equals("Regular")) {
+			setTotalAmmount(500*numOfMembers);
+			return "Booking successful";
+		}
+		else if(tripPackage.equals("Premium")) {
+			setTotalAmmount(800*numOfMembers);
+			return "Booking successful";
+		}
+		else throw new InvalidTripPackageException("Invalid package");		
+	}
+	catch(InvalidTripPackageException | InvalidDestinationException | InvalidCouponCodeException e) {
+		return e.getMessage();
+		}
+		
+}
+}
+
+public class InvalidCouponCodeException extends Exception
+{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	InvalidCouponCodeException(String message)
+	{
+		super(message);
+	}
+
+}
+
+public class InvalidDestinationException extends Exception
+{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	InvalidDestinationException(String message)
+	{
+		super(message);
+	}
+
+}
+
+public class InvalidTripPackageException extends Exception
+{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	InvalidTripPackageException(String message)
+	{
+		super(message);
+	}
+
+}
+
+public class Exception_Tester {
+
+	public static void main(String[] args) 
+	{
+		BusBooking booking = new BusBooking(101,"Orlando", "Regular");
+		 String result = booking.bookTrip("BIGBUS", 11);
+		 if(result.equals("Booking successful")){
+		 System.out.println(result);
+		 System.out.println("Total amount for the trip: " + 
+		 booking.getTotalAmmount());
+		 }
+		 else{
+		 System.out.println(result);
+		 System.out.println("Your booking was not successful, please try again!");
+		 }
+		
+
+	}
+
+}

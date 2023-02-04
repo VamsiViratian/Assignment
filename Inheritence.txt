@@ -1,0 +1,173 @@
+public class Employee 
+{
+	private int employeeId;
+	private String employeeName;
+	protected long Salary;
+	
+	Employee(int employeeId,String employeeName)
+	{
+		this.employeeId=employeeId;
+		this.employeeName=employeeName;
+	}
+
+	public int getemployeeid() {
+		return employeeId;
+	}
+
+	public void setemployeeid(int employeeid) {
+		this.employeeId = employeeid;
+	}
+
+	public String getemployeeName() {
+		return employeeName;
+	}
+
+	public void setemployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+	public long getSalary() {
+		return Salary;
+	}
+
+	public void setSalary(long salary) {
+		this.Salary = salary;
+	}
+	
+	
+
+}
+
+public class PermanentEmployee extends Employee
+{
+	private double basicPay;
+	private double hra;
+	private float experience;
+
+	PermanentEmployee(int employeeId, String employeeName,double basicPay,double hra,float experience)
+	{
+		super(employeeId, employeeName);
+		this.basicPay=basicPay;
+		this.hra=hra;
+		this.experience=experience;
+		
+	}
+	
+	public void calculateMonthlySalary()
+	{
+		double variable_component =0;
+	   
+	    
+	    if(experience<3)
+	    {
+	    	 variable_component=0;
+	    }
+	    else if(experience>=3 && experience<5)
+	    {
+	    	 variable_component=basicPay*0.05;
+	    }
+	    else if(experience>=5 && experience<10)
+	    {
+	    	variable_component=basicPay*0.07;
+	    }
+	    else if(experience>=10)
+	    {
+	    	variable_component=basicPay*0.12;
+	    }
+	    
+		setSalary(Math.round(basicPay+hra+variable_component));
+	    
+	}
+
+	
+
+	public double getbasicPay() {
+		return basicPay;
+	}
+
+	public void setbasicPay(double basicPay) {
+		this.basicPay = basicPay;
+	}
+
+	public double gethra() {
+		return hra;
+	}
+
+	public void sethra(double hra) {
+		this.hra = hra;
+	}
+
+	public float getexperience() {
+		return experience;
+	}
+
+	public void setexperience(float experience) {
+		this.experience = experience;
+	}
+	
+	
+	
+}
+
+public class ContractEmployee extends Employee
+{
+	private double wage;
+	private float hoursWorked;
+
+	ContractEmployee(int employeeId, String employeeName,double wage,float hoursWorked)
+	{
+		super(employeeId, employeeName);
+		this.wage=wage;
+		this.hoursWorked=hoursWorked;
+		
+	}
+	
+	public void calculateSalary()
+	{
+		setSalary(Math.round(hoursWorked*wage));
+		//setSalary()= (hoursWorked*wage);
+		
+	}
+	
+	
+
+	public double getwage() {
+		return wage;
+	}
+
+	public void setwage(double wage) {
+		this.wage = wage;
+	}
+
+	public float gethoursWorked() {
+		return hoursWorked;
+	}
+
+	public void sethoursWorked(float hoursWorked) {
+		this.hoursWorked = hoursWorked;
+	}
+	
+	
+	
+
+}
+
+public class Employee_Tester {
+
+	public static void main(String[] args) 
+	{
+		PermanentEmployee permanentEmployee = new PermanentEmployee(711211, "Rafael", 1855,
+				115, 3.5f);
+				 permanentEmployee.calculateMonthlySalary();
+				 System.out.println("Hi "+permanentEmployee.getemployeeName()+ " your salary is $"
+				+permanentEmployee.getSalary());
+
+				 ContractEmployee contractEmployee = new ContractEmployee(102, "Jennifer", 16, 90);
+				 contractEmployee.calculateSalary();
+				 System.out.println("Hi "+contractEmployee.getemployeeName()+" your salary is $"
+				+contractEmployee.getSalary());
+		
+
+	}
+
+}
